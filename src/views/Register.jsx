@@ -1,40 +1,41 @@
 import { useState } from 'react'
-import { auth } from '../../firebase';
-import { signInWithEmailAndPassword } from "firebase/auth";
+// import { handleRegisterWithEmail }
 
-const Login = () => {
-
+const Register = () => {
+  
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [user, setUser] = useState(null)
 
-  const handleLoginWithEmail = (e) => {
+  const handleRegisterWithEmail = (e) => {
     e.preventDefault()
 
-    signInWithEmailAndPassword(auth, email, password)
-      .then(userCredential => {
-        const user0 = userCredential.user;
-        console.log('user0: ', user0);
+    console.log('registro');
 
-        setUser(userCredential.user)
-        console.log('login');
-        console.log('user posta: ', user);
-        setEmail('')
-        setPassword('')
-      })
-      .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
+    // signInWithEmailAndPassword(auth, email, password)
+    //   .then(userCredential => {
+    //     const user0 = userCredential.user;
+    //     console.log('user0: ', user0);
 
-        console.log('error');
-        console.log(errorMessage);
-      });
+    //     setUser(userCredential.user)
+    //     console.log('login');
+    //     console.log('user posta: ', user);
+    //     setEmail('')
+    //     setPassword('')
+    //   })
+    //   .catch((error) => {
+    //     const errorCode = error.code;
+    //     const errorMessage = error.message;
+
+    //     console.log('error');
+    //     console.log(errorMessage);
+    //   });
   }
 
   return (
     <main className='bg-gray-700 flex flex-col h-screen justify-center min-w-0 m-auto text-white'>
-      <h1 className='mx-auto text-4xl'>Ingresar</h1>
-      <form className='sm:mx-auto sm:w-full sm:max-w-sm justify-around' onSubmit={handleLoginWithEmail}>
+      <h1 className='mx-auto text-4xl'>Registrarse</h1>
+      <form className='sm:mx-auto sm:w-full sm:max-w-sm justify-around' onSubmit={handleRegisterWithEmail}>
         <label
           className='text-sm font-medium leading-6 mb-4'
           htmlFor="email"
@@ -64,17 +65,15 @@ const Login = () => {
           onChange={e => setPassword(e.target.value)}
         />
 
-        <a href="#forgot_password" className='flex mt-3 justify-end text-white hover:underline'>¿Olvidaste tu contraseña?</a>
-
-        <button type="submit" className="flex w-fit mx-auto mt-6 rounded bg-green-800 px-3 py-1.5 font-semibold leading-6 text-white shadow-sm hover:bg-green-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Ingresar</button>
+        <button type="submit" className="flex w-fit mx-auto mt-6 rounded bg-green-800 px-3 py-1.5 font-semibold leading-6 text-white shadow-sm hover:bg-green-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Registrarse</button>
 
         <p className="mt-6 text-center text-sm">
-          ¿No tienes cuenta?
-          <a href="#" className="font-semibold leading-6 ml-1.5 text-green-500 hover:text-green-400 hover:underline">Registrate gratis</a>
+          ¿Ya tienes cuenta?
+          <a href="#" className="font-semibold leading-6 ml-1.5 text-green-500 hover:text-green-700 hover:duration-700 hover:underline">Ingresar</a>
         </p>
       </form>
     </main>
   )
 }
 
-export default Login
+export default Register
