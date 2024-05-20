@@ -1,5 +1,6 @@
 import { useState } from 'react'
-// import { handleRegisterWithEmail }
+import { auth } from '../../firebase';
+import { createUserWithEmailAndPassword } from "firebase/auth";
 
 const Register = () => {
   
@@ -9,27 +10,20 @@ const Register = () => {
 
   const handleRegisterWithEmail = (e) => {
     e.preventDefault()
-
     console.log('registro');
 
-    // signInWithEmailAndPassword(auth, email, password)
-    //   .then(userCredential => {
-    //     const user0 = userCredential.user;
-    //     console.log('user0: ', user0);
-
-    //     setUser(userCredential.user)
-    //     console.log('login');
-    //     console.log('user posta: ', user);
-    //     setEmail('')
-    //     setPassword('')
-    //   })
-    //   .catch((error) => {
-    //     const errorCode = error.code;
-    //     const errorMessage = error.message;
-
-    //     console.log('error');
-    //     console.log(errorMessage);
-    //   });
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        setUser(userCredential.user)
+        setEmail('')
+        setPassword('')
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log('Error code: ', errorCode);
+        console.log(errorMessage);
+      });
   }
 
   return (

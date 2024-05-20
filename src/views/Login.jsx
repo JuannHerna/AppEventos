@@ -13,20 +13,14 @@ const Login = () => {
 
     signInWithEmailAndPassword(auth, email, password)
       .then(userCredential => {
-        const user0 = userCredential.user;
-        console.log('user0: ', user0);
-
         setUser(userCredential.user)
-        console.log('login');
-        console.log('user posta: ', user);
         setEmail('')
         setPassword('')
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-
-        console.log('error');
+        console.log('Error code: ', errorCode);
         console.log(errorMessage);
       });
   }
