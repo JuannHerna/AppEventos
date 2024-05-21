@@ -10,6 +10,7 @@ import './index.css'
 import App from './App.jsx'
 import Login from './views/Login.jsx';
 import Register from './views/Register.jsx';
+import Events from './views/Events.jsx';
 
 const router = createBrowserRouter([
   {
@@ -27,7 +28,12 @@ const router = createBrowserRouter([
   {
     path: "/register",
     element: <Register />,
+  },
+  {
+    path: "/events",
+    element: <Events />
   }
+
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
