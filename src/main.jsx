@@ -11,6 +11,7 @@ import App from './App.jsx'
 import Login from './views/Login.jsx';
 import Register from './views/Register.jsx';
 import Events from './views/Events.jsx';
+import Fav from './views/Fav.jsx'
 
 const router = createBrowserRouter([
   {
@@ -32,8 +33,11 @@ const router = createBrowserRouter([
   {
     path: "/events",
     element: <Events />
+  },
+  {
+    path: "/favoritos",
+    element: <Fav />,
   }
-
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(

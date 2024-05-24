@@ -17,7 +17,7 @@ export const Navbar=()=> {
   }
   const navigation = [
     { name: 'Home', href: './', current: true },
-    { name: 'Favoritos', href: '/events', current: false },
+    { name: 'Favoritos', href: '/favoritos', current: false },
     { name: 'Eventos', href: '/events', current: false },
   ]
   const userNavigation = [
