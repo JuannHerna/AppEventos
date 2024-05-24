@@ -2,28 +2,26 @@ import React from 'react';
 import { Navbar } from '../components/Navbar';
 import Tarjeta from '../components/Tarjeta';
 
-const Events=()=>{
+function Events(){
+    const Hoy= 'Hoy'
+    const Sig = 'Semana'
+    const Sigmas = "Mes"
     return(
         <>
         <Navbar />
         <div className="h-screen bg-gradient-to-b from-teal-900 to-teal-500">
-            <section className="">
-                    <img className="mx-auto h-12" src="https://tailwindui.com/img/logos/workcation-logo-indigo-600.svg" alt="" />
-                    <figure className="mt-auto">
-                        <blockquote className="text-center text-xl font-semibold leading-8 text-gray-900 sm:text-2xl sm:leading-9">
-                            <h2>
-                                En esta seccion puedes encontrar tu evento favorito!!!
-                            </h2>
-                            <h2>
-                                Eventos destacados...
-                            </h2>
-                        </blockquote>
-                    </figure>
+            <section className="text-white h-1/4  flex flex-col justify-center items-center">
+                <h2 className='text-4xl font-bold text-center text-teal-90'>
+                    En esta seccion puedes encontrar los mejores eventos..
+               </h2>
+                <h2 className='mt-6 text-4xl font-bold text-center text-teal-90'>
+                    Destacados
+                </h2>
             </section>
-        <div className='flex'>
-                <Tarjeta />
-                <Tarjeta />
-                <Tarjeta />
+            <div className='grid grid-cols-3 gap-4 p-5'>
+                    <Tarjeta dia={Hoy} />
+                    <Tarjeta dia={Sig} />
+                    <Tarjeta dia={Sigmas} />
             </div>
         </div>
          </>

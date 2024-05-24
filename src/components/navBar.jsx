@@ -19,8 +19,6 @@ export const Navbar=()=> {
     { name: 'Home', href: './', current: true },
     { name: 'Favoritos', href: '/events', current: false },
     { name: 'Eventos', href: '/events', current: false },
-    { name: 'Login', href: '/login', current: false },
-    { name: 'Register', href: '/register', current: false },
   ]
   const userNavigation = [
     { name: 'Your Profile', href: '#' },
